@@ -27,3 +27,39 @@ const sum = (a,b) => a + b;
 logger('loading.....')
 loggers('Message....')
 console.log(sum(2,2))
+
+/*
+    10
+     -  Định nghĩa key: value cho object
+     -  Định nghĩa method cho object
+     -  Định nghĩa key cho object dưới dạng biến   
+ */
+
+     var name   = 'javascript';
+     var price  = 1000;
+
+     var course = {
+         name,
+         price,
+         getValue() {
+             return name
+         }
+     }
+     console.log(course.getValue())
+// 8, 10
+var array = ['javascript', 'php', 'ruby']
+
+// var a = array[0]
+// var b = array[1]
+// var c = array[2]
+// console.log(a, b, c)
+
+var [c, ...hello] = array
+console.log(c)
+console.log(hello)
+
+// 9 
+var array1 = ['javacript', 'python', 'ruby']
+var array2 = ['html', 'css']
+var array3 = [...array1, ...array2]
+console.log(array3)
