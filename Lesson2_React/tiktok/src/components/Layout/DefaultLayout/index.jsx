@@ -1,10 +1,10 @@
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
-
+import './DefaultLayout.scss'
 
 function DefaultLayout({ children }) {
   return (
-    <div>
+    <div className="tiktok">
         <Header />
         <div className="container">
             <Sidebar />
