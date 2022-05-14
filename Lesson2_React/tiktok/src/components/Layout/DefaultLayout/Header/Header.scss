@@ -1,4 +1,7 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-button-width:52px;
     height: 60px;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
@@ -11,16 +14,27 @@
     align-items: center;
     justify-content: space-between;
 }
-.logo {
-    
-}
 .search {
+    position: relative;
     display: flex;
     width: 361px;
-    height: 46px;
+    height: var(--search-height);
     background-color: rgba(22, 24, 35, 0.06);
-    border-radius: 92px;
+    border-radius: var(--search-border-radius);
     padding-left: 16px;
+    border: 1.5px solid transparent;
+    &::after{
+        content: "";
+        position: absolute;
+        right: var(--search-button-width);
+        top: 9px;
+        width: 1px;
+        height: 28px;
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+    &:focus-within{
+        border-color:rgba(22, 24, 35, 0.2);
+    }
     input {
         flex: 1;
         height: 100%;
@@ -29,12 +43,34 @@
         border: none;
         outline: none;
         background-color: transparent;
+        caret-color: var(--primary);
+    }
+    input:not(:placeholder-shown) ~ &-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+    .clear, .loading {
+        position: absolute;
+        right: calc(var(--search-button-width) + 16px);
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(22, 24, 35, 0.34);
     }
     &-btn{
-        width: 52px;
+        width: var(--search-button-width);
         height: 100%;
         border: none;
         outline: none;
-        border-radius: 92px;
+        border-top-right-radius: var(--search-border-radius);
+        border-bottom-right-radius: var(--search-border-radius);
+        font-size: 1.8rem;
+        color:rgba(22, 24, 35, 0.34) ;
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+            cursor: pointer;
+        }
+        &:active {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
     }
+    
 }
