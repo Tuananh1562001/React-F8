@@ -3,14 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faMagnifyingGlass, faSpinner} from '@fortawesome/free-solid-svg-icons'
 import Tippy from '@tippyjs/react/headless';
 
-import Propper from '~/components/Propper/Propper';
 import './Header.scss';
 import images from '~/assets/images';
+import Propper from '~/components/Propper/Propper';
+import AccountItem from '~/components/AccountItem/AccountItem';
+
 
 function Header() {
     const [searchResult, setSearchResult] = useState([])
     useEffect(() => {
-        setSearchResult([1, 2, 3])
+        setSearchResult([])
     }, [])
     return (
         <header className="wrapper">
@@ -22,11 +24,17 @@ function Header() {
                     visible={searchResult.length > 0}
                     interactive
                     render={(attrs) => (
-                        <Propper>
-                            <div className='search-result' tabIndex="-1" {...attrs} >
-                                Ket qua
-                            </div>
-                        </Propper>
+                        <div className='search-result' tabIndex="-1" {...attrs} >
+                            <Propper>
+                                <h4 className='search-title'>
+                                    Accounts
+                                </h4>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                            </Propper>
+                        </div>
                     )}
                 >
                     <div className='search'>
